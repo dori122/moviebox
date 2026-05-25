@@ -100,3 +100,56 @@ body {
   font-size: 0.75rem;
   color: #aaa;
 }
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #333;
+  border-top-color: #e50914;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 300px;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero-overview {
+    display: none;
+  }
+
+  .hero-content button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .section {
+    padding: 16px 16px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .movie-title {
+    font-size: 0.75rem;
+  }
+
+  .movie-year {
+    font-size: 0.65rem;
+  }
+}

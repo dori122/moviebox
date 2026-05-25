@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getPopularMovies, getRecentMovies, getPosterUrl } from '../api/tmdb'
+import { getPopularMovies, getRecentMovies } from '../api/tmdb'
 import MovieCard from '../components/MovieCard'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,15 +7,23 @@ function Home() {
   const [popular, setPopular] = useState([])
   const [recent, setRecent] = useState([])
   const [hero, setHero] = useState(null)
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
   useEffect(() => {
-    getPopularMovies().then(movies => {
-      setPopular(movies)
-      setHero(movies[0])
+    Promise.all([getPopularMovies(), getRecentMovies()]).then(([pop, rec]) => {
+      setPopular(pop)
+      setHero(pop[0])
+      setRecent(rec)
+      setLoading(false)
     })
-    getRecentMovies().then(movies => setRecent(movies))
   }, [])
+
+  if (loading) return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#0d0d0d' }}>
+      <div className="spinner"></div>
+    </div>
+  )
 
   return (
     <div className="home">
