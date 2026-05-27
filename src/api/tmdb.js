@@ -6,8 +6,8 @@ const OPTIONS = {
   }
 }
 
-export async function getPopularMovies() {
-  const res = await fetch('https://api.themoviedb.org/3/movie/popular?language=el-GR&page=1', OPTIONS)
+export async function getTopRatedMovies() {
+  const res = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=el-GR&page=1', OPTIONS)
   const data = await res.json()
   return data.results
 }

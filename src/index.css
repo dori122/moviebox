@@ -153,3 +153,23 @@ body {
     font-size: 0.65rem;
   }
 }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: #141414;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}

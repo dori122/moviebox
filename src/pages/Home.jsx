@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getPopularMovies, getRecentMovies } from '../api/tmdb'
+import { getTopRatedMovies, getRecentMovies } from '../api/tmdb'
 import MovieCard from '../components/MovieCard'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,7 +11,7 @@ function Home() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    Promise.all([getPopularMovies(), getRecentMovies()]).then(([pop, rec]) => {
+    Promise.all([getTopRatedMovies(), getRecentMovies()]).then(([pop, rec]) => {
       setPopular(pop)
       setHero(pop[0])
       setRecent(rec)
